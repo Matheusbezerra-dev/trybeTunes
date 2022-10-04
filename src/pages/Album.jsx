@@ -40,8 +40,8 @@ export default class Album extends Component {
     });
   };
 
-  favoriteFunction = async (event, obj) => {
-    const { target } = event;
+  favoriteFunction = async (e, obj) => {
+    const { target } = e;
     const { favorite } = this.state;
     this.setState({ loading: true }, async () => {
       if (target.checked) {
@@ -65,6 +65,7 @@ export default class Album extends Component {
     const { favorite } = this.state;
     this.setState({ loading: true });
     const result = await getFavoriteSongs();
+    console.log(result);
     this.setState({
       loading: false,
       favorite: [...favorite, ...result.map(({ trackId }) => trackId)],
@@ -73,6 +74,7 @@ export default class Album extends Component {
 
   render() {
     const { album, albumInformation, loading, favorite } = this.state;
+    console.log(favorite);
     return (
       <div data-testid="page-album">
         <Header />

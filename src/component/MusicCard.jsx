@@ -12,7 +12,7 @@ export default class MusicCard extends Component {
       favoriteFunction,
     } = this.props;
     return (
-      <>
+      <main>
         <p>{trackName}</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
@@ -33,7 +33,7 @@ export default class MusicCard extends Component {
             />
           </label>
         </div>
-      </>
+      </main>
     );
   }
 }
